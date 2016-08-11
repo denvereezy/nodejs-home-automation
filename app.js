@@ -9,7 +9,7 @@ board.on('ready', function() {
     var control = setInterval(function() {
         var date = new Date(),
             currentTime = date.getHours() + ':' + date.getMinutes(),
-            manuelControl = date.getDay();
+            manualControl = date.getDay();
 
         switch (currentTime) {
             case process.env.roomTime || '17:50':
@@ -29,7 +29,7 @@ board.on('ready', function() {
                 break;
         };
 
-        switch (manuelControl) {
+        switch (manualControl) {
             case 6 || 7:
                 clearInterval(control);
                 break;
