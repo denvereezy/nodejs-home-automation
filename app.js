@@ -1,4 +1,5 @@
 var five = require('johnny-five'),
+    CronJob = require('cron').CronJob,
     Raspi = require("raspi-io"),
     board = new five.Board() || new five.Board({
         io: new Raspi()
@@ -6,33 +7,48 @@ var five = require('johnny-five'),
 
 board.on('ready', function() {
     var roomLight = new five.Led(11) || new five.Led("P1-13");
-    var control = setInterval(function() {
-        var date = new Date(),
-            currentTime = date.getHours() + ':' + date.getMinutes(),
-            manualControl = date.getDay();
+    var lightOnNight = new CronJob({
+        cronTime: '0 45 17 * * 1-5',
+        onTick: function() {
+            roomLight.on();
+        },
+        start: true,
+        timeZone: 'Africa/johannesburg'
+    });
 
-        switch (currentTime) {
-            case process.env.roomTime || '17:50':
-                roomLight.on();
-                break;
-            case process.env.dimmTime || '18:30':
-                roomLight.brightness(128);
-                break;
-            case process.env.offTime || '20:00':
-                roomLight.off();
-                break;
-            case process.env.morningOnTime || '6:00':
-                roomLight.on();
-                break;
-            case process.env.morningOffTime || '6:45':
-                roomLight.on();
-                break;
-        };
+    var lightdimm = new CronJob({
+        cronTime: '00 30 18 * * 1-5',
+        onTick: function() {
+            roomLight.brightness(128);
+        },
+        start: true,
+        timeZone: 'Africa/johannesburg'
+    });
 
-        switch (manualControl) {
-            case 6 || 7:
-                clearInterval(control);
-                break;
-        };
-    }, 1000);
+    var lightOffNight = new CronJob({
+        cronTime: '00 00 20 * * 1-5',
+        onTick: function() {
+            roomLight.off();
+        },
+        start: true,
+        timeZone: 'Africa/johannesburg'
+    });
+
+    var lightOnMorning = new CronJob({
+        cronTime: '00 00 6 * * 1-5',
+        onTick: function() {
+            roomLight.off();
+        },
+        start: true,
+        timeZone: 'Africa/johannesburg'
+    });
+
+    var lightOffMorning = new CronJob({
+        cronTime: '00 50 6 * * 1-5',
+        onTick: function() {
+            roomLight.off();
+        },
+        start: true,
+        timeZone: 'Africa/johannesburg'
+    });
 });
