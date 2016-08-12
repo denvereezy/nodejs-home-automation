@@ -21,10 +21,10 @@ board.on('ready', function() {
             case process.env.offTime || '20:00':
                 roomLight.off();
                 break;
-            case process.env.morningOnTime || '06:00':
+            case process.env.morningOnTime || '6:00':
                 roomLight.on();
                 break;
-            case process.env.morningOffTime || '06:45':
+            case process.env.morningOffTime || '6:45':
                 roomLight.on();
                 break;
         };
