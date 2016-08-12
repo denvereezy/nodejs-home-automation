@@ -37,7 +37,7 @@ board.on('ready', function() {
     var lightOnMorning = new CronJob({
         cronTime: '00 00 6 * * 1-5',
         onTick: function() {
-            roomLight.off();
+            roomLight.on();
         },
         start: true,
         timeZone: 'Africa/johannesburg'
