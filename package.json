@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-home-automation",
+  "version": "1.0.0",
+  "description": "switching on lights at certain times using arduino/raspberry pi",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denvereezy/nodejs-home-automation.git"
+  },
+  "author": "denver daniels",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.1.0",
+    "johnny-five": "^0.9.62",
+    "raspi-io": "latest"
+  },
+  "bugs": {
+    "url": "https://github.com/denvereezy/nodejs-home-automation/issues"
+  },
+  "homepage": "https://github.com/denvereezy/nodejs-home-automation#readme"
+}
