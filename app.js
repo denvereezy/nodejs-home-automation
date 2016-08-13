@@ -7,13 +7,14 @@ var five = require('johnny-five'),
 
 board.on('ready', function() {
     var roomLight = new five.Led(11) || new five.Led("P1-13");
+    var timeZone = 'Africa/johannesburg';
     var lightOnNight = new CronJob({
         cronTime: '0 45 17 * * 1-5',
         onTick: function() {
             roomLight.on();
         },
         start: true,
-        timeZone: 'Africa/johannesburg'
+        timeZone: timeZone
     });
 
     var lightdimm = new CronJob({
@@ -22,7 +23,7 @@ board.on('ready', function() {
             roomLight.brightness(128);
         },
         start: true,
-        timeZone: 'Africa/johannesburg'
+        timeZone: timeZone
     });
 
     var lightOffNight = new CronJob({
@@ -31,7 +32,7 @@ board.on('ready', function() {
             roomLight.off();
         },
         start: true,
-        timeZone: 'Africa/johannesburg'
+        timeZone: timeZone
     });
 
     var lightOnMorning = new CronJob({
@@ -40,7 +41,7 @@ board.on('ready', function() {
             roomLight.on();
         },
         start: true,
-        timeZone: 'Africa/johannesburg'
+        timeZone: timeZone
     });
 
     var lightOffMorning = new CronJob({
@@ -49,6 +50,6 @@ board.on('ready', function() {
             roomLight.off();
         },
         start: true,
-        timeZone: 'Africa/johannesburg'
+        timeZone: timeZone
     });
 });
