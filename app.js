@@ -6,7 +6,7 @@ var five = require('johnny-five'),
     });
 
 board.on('ready', function() {
-    var roomLight = new five.Led(11) || new five.Led("P1-13");
+    var roomLight = new five.Led(11) || new five.Led("P1-12");
     var timeZone = 'Africa/johannesburg';
     var lightOnNight = new CronJob({
         cronTime: '0 45 17 * * 1-5',
