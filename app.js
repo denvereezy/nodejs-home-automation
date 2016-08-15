@@ -52,4 +52,8 @@ board.on('ready', function() {
         start: true,
         timeZone: timeZone
     });
+
+    this.on("exit", function() {
+        roomLight.off();
+    });
 });
