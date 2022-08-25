@@ -18,5 +18,5 @@ This project was created in node.js using modules like [johnny-five](http://john
 * Check if you are using 12 hour or 24 hour time format.
 
 # Setting up hardware
- <img src="./switch_bb.jpg" height="300px">
- * The [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) acts as an automatic switch so if you plan to use big lights instead of small led's, you need to use a [relay](https://www.amazon.com/Kootek-Channel-Module-Arduino-Raspberry/dp/B00C8O9KHA) to use mains power.
+* The [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) acts as an automatic switch so if you plan to use big lights instead of small led's, you need to use a [relay](https://www.amazon.com/Kootek-Channel-Module-Arduino-Raspberry/dp/B00C8O9KHA) to use mains power.
+<img src="./switch_bb.jpg" height="300px"/>
